@@ -1,12 +1,20 @@
 {
-  "name": "luedantemplates",
+  "name": "luedanstarterkit",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
+  },
+  "bin": {
+    "starterkit": "./index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "inquirer": "^10.1.6",
+    "simple-git": "^3.25.0"
+  }
 }
