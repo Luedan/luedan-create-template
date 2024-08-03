@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import inquirer from "inquirer";
-import { exec } from "child_process";
+import { exec, spawn } from "child_process";
 import path from "path";
 import fs from "fs";
 
@@ -62,14 +62,49 @@ const main = async () => {
     }
 
     if (fs.existsSync(gitDir)) {
+      // Eliminar la carpeta .git
       fs.rmSync(gitDir, { recursive: true, force: true });
-      console.log("Instalando dependencias...");
 
-      exec(`cd ${destPath} && ${packageInstaller} install`, (err) => {
+      // Eliminar los archivos de bloqueo de los gestores de paquetes
+      exec("rm -f package-lock.json yarn.lock pnpm-lock.yaml", { cwd: destPath }, (err) => {
         if (err) {
           console.error(err);
           return;
         }
+      })
+
+      // inicializar git
+
+      exec("git init", { cwd: destPath }, (err) => {
+        if (err) {
+          console.error(err);
+          return;
+        }
+      });
+
+      // Instalar dependencias
+      console.log("Instalando dependencias...");
+      const installCommand = packageInstaller;
+      const installArgs = ["install"];
+
+      const installProcess = spawn(installCommand, installArgs, {
+        cwd: destPath,
+        stdio: "inherit",
+        shell: true,
+      });
+
+      installProcess.on("close", (code) => {
+        if (code === 0) {
+          console.log("Dependencias instaladas exitosamente.");
+        } else {
+          console.error(
+            `El proceso de instalación terminó con el código ${code}`
+          );
+        }
+      });
+
+      installProcess.on("error", (err) => {
+        console.error("Error al instalar las dependencias:", err);
       });
     }
   });
