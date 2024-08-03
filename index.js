@@ -19,17 +19,14 @@ const templatesFrontend = {
 };
 
 const main = async () => {
-  const templeteTypeChoice = async () => {
-    return await inquirer.prompt([
-      {
-        type: "list",
-        name: "templateType",
-        message: "¿Qué tipo de plantilla deseas instalar? 🤔",
-        choices: ["Plantillas Backend", "Plantillas Frontend"],
-      },
-    ]);
-  };
-  const { templateType } = await templeteTypeChoice();
+  const { templateType } = await inquirer.prompt([
+    {
+      type: "list",
+      name: "templateType",
+      message: "¿Qué tipo de plantilla deseas instalar? 🤔",
+      choices: ["Plantillas Backend", "Plantillas Frontend"],
+    },
+  ]);
 
   const { templateChoice } = await inquirer.prompt([
     {
