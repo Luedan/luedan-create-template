@@ -22,7 +22,7 @@ npx luedan-create-template
 
 ## Sobre este proyecto
 
-Hola mi nombre es Luis Atencia, Soy Desarrollador fullstack, en todo lo que viene a ser el stack de javascript, typescript, node, etc, trabajo para empresa de desarrollos en la cual siempre se me solicitan plantilllas para proyectos basadas en su necesidad, tomando en cuenta esto cree esta aplicacion de consola de comandos para generar facilmente estas plantillas que se encuentran alojadas en mi Github [Luedan (Luis Atencia) (github.com)](https://github.com/Luedan).
+Hola soy desarrollador fullstack, en todo lo que viene a ser el stack de javascript, typescript, node, etc, trabajo para una empresa de desarrollos en la cual siempre se me solicitan plantilllas para proyectos basadas en su necesidad, tomando en cuenta esto cree esta aplicacion de consola de comandos para generar facilmente estas plantillas que se encuentran alojadas en mi Github [Luedan (Luis Atencia) (github.com)](https://github.com/Luedan).
 
 A medida que vaya haciendo mas plantillas las ire anexando a este proyecto para compartirlas a todos los usuario de la comunidad.
 
