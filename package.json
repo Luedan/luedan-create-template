@@ -1,6 +1,6 @@
 {
   "name": "luedan-create-template",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "CLI para iniciar proyectos con plantillas personalizadas de LuedanDev",
   "main": "index.js",
   "type": "module",
