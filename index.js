@@ -112,7 +112,7 @@ const main = async () => {
       });
 
       // Instalar dependencias
-      if (wannaInstallPackages === "Sí") {
+      if (wannaInstallPackages === "Sí ✅") {
         const { packageInstaller } = await inquirer.prompt([
           {
             type: "list",
