@@ -4,12 +4,13 @@ import inquirer from "inquirer";
 import { exec } from "child_process";
 import path from "path";
 import fs from "fs";
-import { fileURLToPath } from "url";
 
 // Repositorios de GitHub para cada plantilla
 const templates = {
-  "Backend Modular (Nestjs)":
+  "Backend Modular (Nestjs + TypeORM + AutoMapper + Swagger + DDD)":
     "https://github.com/Luedan/modular_nest_template.git",
+  "Backend DDD & SOA (Nestjs + TypeORM + AutoMapper + Swagger)":
+    "https://github.com/Luedan/DDD-SOA-TEMPLATE-NEST.git",
 };
 
 const main = async () => {
@@ -32,8 +33,15 @@ const main = async () => {
     },
   ]);
 
-  const __filename = fileURLToPath(import.meta.url);
-  const __dirname = path.dirname(__filename);
+  const { packageInstaller } = await inquirer.prompt([
+    {
+      type: "list",
+      name: "packageInstaller",
+      message: "¿Qué gestor de paquetes deseas utilizar?",
+      choices: ["npm", "yarn", "pnpm"],
+    },
+  ]);
+
   const destPath = path.join(process.cwd(), projectName);
   const gitDir = path.join(destPath, ".git");
 
@@ -46,9 +54,6 @@ const main = async () => {
   }
 
   console.log("Clonando el repositorio...");
-  // execSync(`git clone ${templates[templateChoice]} ${projectName}`, {
-  //   stdio: "inherit",
-  // });
 
   exec(`git clone ${templates[templateChoice]} ${projectName}`, (err) => {
     if (err) {
@@ -58,6 +63,14 @@ const main = async () => {
 
     if (fs.existsSync(gitDir)) {
       fs.rmSync(gitDir, { recursive: true, force: true });
+      console.log("Instalando dependencias...");
+
+      exec(`cd ${destPath} && ${packageInstaller} install`, (err) => {
+        if (err) {
+          console.error(err);
+          return;
+        }
+      });
     }
   });
 

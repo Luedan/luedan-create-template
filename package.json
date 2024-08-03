@@ -1,11 +1,11 @@
 {
-  "name": "luedanstarterkit",
-  "version": "1.0.3",
-  "description": "CLI para iniciar proyectos con plantillas personalizadas",
+  "name": "luedan-create-template",
+  "version": "1.0.0",
+  "description": "CLI para iniciar proyectos con plantillas personalizadas de LuedanDev",
   "main": "index.js",
   "type": "module",
   "bin": {
-    "luedanstarterkit": "./index.js"
+    "luedan-create-template": "./index.js"
   },
   "scripts": {
     "start": "node index.js"
@@ -15,8 +15,8 @@
     "template",
     "CLI"
   ],
-  "author": "Tu Nombre",
-  "license": "ISC",
+  "author": "Luis Atencia",
+  "license": "MIT",
   "dependencies": {
     "inquirer": "^10.1.6",
     "simple-git": "^3.25.0"
