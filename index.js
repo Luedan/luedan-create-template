@@ -7,9 +7,9 @@ import fs from "fs";
 
 // Repositorios de GitHub para cada plantilla
 const templates = {
-  "Backend Modular (Nestjs + TypeORM + AutoMapper + Swagger + DDD)":
+  "Backend Modular (Nestjs + TypeORM + AutoMapper + Swagger + DDD + Clean architecture)":
     "https://github.com/Luedan/modular_nest_template.git",
-  "Backend DDD & SOA (Nestjs + TypeORM + AutoMapper + Swagger)":
+  "Backend DDD & SOA (Nestjs + TypeORM + AutoMapper + Swagger + Clean architecture)":
     "https://github.com/Luedan/DDD-SOA-TEMPLATE-NEST.git",
 };
 
@@ -18,7 +18,7 @@ const main = async () => {
     {
       type: "list",
       name: "templateChoice",
-      message: "¿Qué plantilla deseas instalar?",
+      message: "¿Qué plantilla deseas instalar? 🤔",
       choices: Object.keys(templates),
     },
   ]);
@@ -27,7 +27,7 @@ const main = async () => {
     {
       type: "input",
       name: "projectName",
-      message: "¿Cuál es el nombre de tu proyecto?",
+      message: "¿Cuál es el nombre de tu proyecto? 📝",
       validate: (input) =>
         input ? true : "El nombre del proyecto no puede estar vacío.",
     },
@@ -38,7 +38,7 @@ const main = async () => {
       type: "list",
       name: "wannaInstallPackages",
       message: "¿Deseas instalar las dependencias del proyecto?",
-      choices: ["Sí", "No"],
+      choices: ["Sí ✅", "No ❌"],
     },
   ]);
 
@@ -53,7 +53,7 @@ const main = async () => {
     process.exit(1);
   }
 
-  console.log("Clonando el repositorio...");
+  console.log("Clonando el repositorio... 🚀");
 
   exec(`git clone ${templates[templateChoice]} ${projectName}`, async (err) => {
     if (err) {
@@ -93,12 +93,12 @@ const main = async () => {
           {
             type: "list",
             name: "packageInstaller",
-            message: "¿Qué gestor de paquetes deseas utilizar?",
+            message: "¿Qué gestor de paquetes deseas utilizar? 📦",
             choices: ["npm", "yarn", "pnpm"],
           },
         ]);
 
-        console.log("Instalando dependencias...");
+        console.log("Instalando dependencias... 🚀");
         const installCommand = packageInstaller;
         const installArgs = ["install"];
 
@@ -110,7 +110,7 @@ const main = async () => {
 
         installProcess.on("close", (code) => {
           if (code === 0) {
-            console.log("Dependencias instaladas exitosamente.");
+            console.log("Dependencias instaladas exitosamente. 🎉");
           } else {
             console.error(
               `El proceso de instalación terminó con el código ${code}`
@@ -129,6 +129,6 @@ const main = async () => {
 };
 
 main().catch(() => {
-  console.error("Salida inesperada");
+  console.error("Salida inesperada 😢");
   process.exit(1);
 });
