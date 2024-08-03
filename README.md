@@ -20,6 +20,11 @@ luedan-create-template
 npx luedan-create-template
 ```
 
+## Plantillas disponibles
+
+* [Luedan/modular\_nest\_template (github.com)](https://github.com/Luedan/modular_nest_template)
+* [Luedan/DDD-SOA-TEMPLATE-NEST (github.com)](https://github.com/Luedan/DDD-SOA-TEMPLATE-NEST)
+
 ## Sobre este proyecto
 
 Hola soy desarrollador fullstack, en todo lo que viene a ser el stack de javascript, typescript, node, etc, trabajo para una empresa de desarrollos en la cual siempre se me solicitan plantilllas para proyectos basadas en su necesidad, tomando en cuenta esto cree esta aplicacion de consola de comandos para generar facilmente estas plantillas que se encuentran alojadas en mi Github [Luedan (Luis Atencia) (github.com)](https://github.com/Luedan).
@@ -27,8 +32,3 @@ Hola soy desarrollador fullstack, en todo lo que viene a ser el stack de javascr
 A medida que vaya haciendo mas plantillas las ire anexando a este proyecto para compartirlas a todos los usuario de la comunidad.
 
 El proyecto actualmente esta publico en mi Github [luedan-create-template](https://github.com/Luedan/luedan-create-template)
-
-## Plantillas disponibles
-
-* [Luedan/modular\_nest\_template (github.com)](https://github.com/Luedan/modular_nest_template)
-* [Luedan/DDD-SOA-TEMPLATE-NEST (github.com)](https://github.com/Luedan/DDD-SOA-TEMPLATE-NEST)
