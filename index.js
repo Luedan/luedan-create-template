@@ -6,22 +6,49 @@ import path from "path";
 import fs from "fs";
 
 // Repositorios de GitHub para cada plantilla
-const templates = {
-  "Backend Modular (Nestjs + TypeORM + AutoMapper + Swagger + DDD + Clean architecture)":
+const templatesBackend = {
+  "Backend Modular para proyectos escalable (Nestjs + TypeORM + AutoMapper + Swagger + DDD + Clean architecture)":
     "https://github.com/Luedan/modular_nest_template.git",
-  "Backend DDD & SOA (Nestjs + TypeORM + AutoMapper + Swagger + Clean architecture)":
+  "Backend DDD & SOA para proyectos escalable (Nestjs + TypeORM + AutoMapper + Swagger + Clean architecture)":
     "https://github.com/Luedan/DDD-SOA-TEMPLATE-NEST.git",
+  Regresar: "back",
+};
+
+const templatesFrontend = {
+  Regresar: "back",
 };
 
 const main = async () => {
+  const templeteTypeChoice = async () => {
+    return await inquirer.prompt([
+      {
+        type: "list",
+        name: "templateType",
+        message: "¿Qué tipo de plantilla deseas instalar? 🤔",
+        choices: ["Plantillas Backend", "Plantillas Frontend"],
+      },
+    ]);
+  };
+  const { templateType } = await templeteTypeChoice();
+
   const { templateChoice } = await inquirer.prompt([
     {
       type: "list",
       name: "templateChoice",
       message: "¿Qué plantilla deseas instalar? 🤔",
-      choices: Object.keys(templates),
+      choices:
+        templateType === "Plantillas Backend"
+          ? Object.keys(templatesBackend)
+          : Object.keys(templatesFrontend),
     },
   ]);
+
+  if (templateChoice === "Regresar") {
+    return main().catch(() => {
+      console.error("Salida inesperada 😢");
+      process.exit(1);
+    });
+  }
 
   const { projectName } = await inquirer.prompt([
     {
@@ -88,7 +115,6 @@ const main = async () => {
 
       // Instalar dependencias
       if (wannaInstallPackages === "Sí") {
-
         const { packageInstaller } = await inquirer.prompt([
           {
             type: "list",
