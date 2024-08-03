@@ -68,6 +68,7 @@ const main = async () => {
 
   const destPath = path.join(process.cwd(), projectName);
   const gitDir = path.join(destPath, ".git");
+  const templates = templateType === "Plantillas Backend" ? templatesBackend : templatesFrontend;
 
   // Crear la carpeta del proyecto si no existe
   if (fs.existsSync(destPath)) {
@@ -151,7 +152,7 @@ const main = async () => {
   console.log(`Template instalado exitosamente en ${projectName} 🎉`);
 };
 
-main().catch(() => {
-  console.error("Salida inesperada 😢");
+main().catch((err) => {
+  console.error("Salida inesperada 😢: ", err);
   process.exit(1);
 });
