@@ -1,0 +1,24 @@
+{
+  "name": "luedanstarterkit",
+  "version": "1.0.3",
+  "description": "CLI para iniciar proyectos con plantillas personalizadas",
+  "main": "index.js",
+  "type": "module",
+  "bin": {
+    "luedanstarterkit": "./index.js"
+  },
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [
+    "starter",
+    "template",
+    "CLI"
+  ],
+  "author": "Tu Nombre",
+  "license": "ISC",
+  "dependencies": {
+    "inquirer": "^10.1.6",
+    "simple-git": "^3.25.0"
+  }
+}
