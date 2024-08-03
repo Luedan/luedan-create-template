@@ -125,7 +125,7 @@ const main = async () => {
     }
   });
 
-  console.log(`Template instalado exitosamente en ${projectName}`);
+  console.log(`Template instalado exitosamente en ${projectName} 🎉`);
 };
 
 main().catch(() => {

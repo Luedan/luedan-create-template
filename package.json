@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "bin": {
-    "luedan-create-template": "./index.js"
+    "luedan-create-template": "index.js"
   },
   "scripts": {
     "start": "node index.js"
@@ -19,7 +19,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Luedan/luedan-create-template"
+    "url": "git+https://github.com/Luedan/luedan-create-template.git"
   },
   "dependencies": {
     "inquirer": "^10.1.6",
