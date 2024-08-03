@@ -33,12 +33,12 @@ const main = async () => {
     },
   ]);
 
-  const { packageInstaller } = await inquirer.prompt([
+  const { wannaInstallPackages } = await inquirer.prompt([
     {
       type: "list",
-      name: "packageInstaller",
-      message: "¿Qué gestor de paquetes deseas utilizar?",
-      choices: ["npm", "yarn", "pnpm"],
+      name: "wannaInstallPackages",
+      message: "¿Deseas instalar las dependencias del proyecto?",
+      choices: ["Sí", "No"],
     },
   ]);
 
@@ -55,7 +55,7 @@ const main = async () => {
 
   console.log("Clonando el repositorio...");
 
-  exec(`git clone ${templates[templateChoice]} ${projectName}`, (err) => {
+  exec(`git clone ${templates[templateChoice]} ${projectName}`, async (err) => {
     if (err) {
       console.error(err);
       return;
@@ -87,29 +87,41 @@ const main = async () => {
       });
 
       // Instalar dependencias
-      console.log("Instalando dependencias...");
-      const installCommand = packageInstaller;
-      const installArgs = ["install"];
+      if (wannaInstallPackages === "Sí") {
 
-      const installProcess = spawn(installCommand, installArgs, {
-        cwd: destPath,
-        stdio: "inherit",
-        shell: true,
-      });
+        const { packageInstaller } = await inquirer.prompt([
+          {
+            type: "list",
+            name: "packageInstaller",
+            message: "¿Qué gestor de paquetes deseas utilizar?",
+            choices: ["npm", "yarn", "pnpm"],
+          },
+        ]);
 
-      installProcess.on("close", (code) => {
-        if (code === 0) {
-          console.log("Dependencias instaladas exitosamente.");
-        } else {
-          console.error(
-            `El proceso de instalación terminó con el código ${code}`
-          );
-        }
-      });
+        console.log("Instalando dependencias...");
+        const installCommand = packageInstaller;
+        const installArgs = ["install"];
 
-      installProcess.on("error", (err) => {
-        console.error("Error al instalar las dependencias:", err);
-      });
+        const installProcess = spawn(installCommand, installArgs, {
+          cwd: destPath,
+          stdio: "inherit",
+          shell: true,
+        });
+
+        installProcess.on("close", (code) => {
+          if (code === 0) {
+            console.log("Dependencias instaladas exitosamente.");
+          } else {
+            console.error(
+              `El proceso de instalación terminó con el código ${code}`
+            );
+          }
+        });
+
+        installProcess.on("error", (err) => {
+          console.error("Error al instalar las dependencias:", err);
+        });
+      }
     }
   });
 
