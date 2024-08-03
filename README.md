@@ -22,8 +22,14 @@ npx luedan-create-template
 
 ## Plantillas disponibles
 
+### Backend
+
 * [Luedan/modular\_nest\_template (github.com)](https://github.com/Luedan/modular_nest_template)
 * [Luedan/DDD-SOA-TEMPLATE-NEST (github.com)](https://github.com/Luedan/DDD-SOA-TEMPLATE-NEST)
+
+### Frontend
+
+* No disponibles de momento.
 
 ## Sobre este proyecto
 
