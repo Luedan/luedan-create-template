@@ -28,7 +28,7 @@ A medida que vaya haciendo mas plantillas las ire anexando a este proyecto para 
 
 El proyecto actualmente esta publico en mi Github [luedan-create-template](https://github.com/Luedan/luedan-create-template)
 
-## Templates
+## Plantillas disponibles
 
 * [Luedan/modular\_nest\_template (github.com)](https://github.com/Luedan/modular_nest_template)
 * [Luedan/DDD-SOA-TEMPLATE-NEST (github.com)](https://github.com/Luedan/DDD-SOA-TEMPLATE-NEST)
