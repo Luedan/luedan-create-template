@@ -66,12 +66,16 @@ const main = async () => {
       fs.rmSync(gitDir, { recursive: true, force: true });
 
       // Eliminar los archivos de bloqueo de los gestores de paquetes
-      exec("rm -f package-lock.json yarn.lock pnpm-lock.yaml", { cwd: destPath }, (err) => {
-        if (err) {
-          console.error(err);
-          return;
+      exec(
+        "rm -f package-lock.json yarn.lock pnpm-lock.yaml",
+        { cwd: destPath },
+        (err) => {
+          if (err) {
+            console.error(err);
+            return;
+          }
         }
-      })
+      );
 
       // inicializar git
 
@@ -112,7 +116,7 @@ const main = async () => {
   console.log(`Template instalado exitosamente en ${projectName}`);
 };
 
-main().catch((error) => {
-  console.error("ERROR!", error);
+main().catch(() => {
+  console.error("Salida inesperada");
   process.exit(1);
 });
