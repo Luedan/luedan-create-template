@@ -15,6 +15,7 @@ const templatesBackend = {
 };
 
 const templatesFrontend = {
+  "Vite Frontend Template (React + TypeScript + TailwindCSS + Mui + Zustand + React Query + Screaming Arch)": "https://github.com/Luedan/FRONT_VITE_TEMPLATE.git",
   Regresar: "back",
 };
 
