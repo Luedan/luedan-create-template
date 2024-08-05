@@ -1,4 +1,4 @@
-https://github.com/Luedan/FRONT_VITE_TEMPLATE# Luedan Create Template CLI
+# Luedan Create Template CLI
 
 **Luedan Create Template CLI** es una herramienta de línea de comandos que facilita la creación de proyectos a partir de plantillas personalizadas e instalar las dependencias del proyecto utilizando el gestor de paquetes de tu elección.
 
